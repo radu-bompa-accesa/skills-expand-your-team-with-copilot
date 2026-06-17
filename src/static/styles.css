@@ -1,15 +1,15 @@
 /* Color palette */
 :root {
-  /* Primary colors */
-  --primary: #1a237e;
-  --primary-light: #534bae;
-  --primary-dark: #000051;
+  /* Primary colors - School colors: white and lime green */
+  --primary: #32cd32;
+  --primary-light: #7cfc00;
+  --primary-dark: #228b22;
   --primary-text: #ffffff;
 
   /* Secondary colors */
-  --secondary: #ff6f00;
-  --secondary-light: #ffa040;
-  --secondary-dark: #c43e00;
+  --secondary: #32cd32;
+  --secondary-light: #7cfc00;
+  --secondary-dark: #228b22;
   --secondary-text: #ffffff;
 
   /* Neutral colors */
@@ -34,14 +34,14 @@
 
 /* Dark mode colors */
 [data-theme="dark"] {
-  --primary: #7986cb;
-  --primary-light: #9fa8da;
-  --primary-dark: #3949ab;
+  --primary: #7cfc00;
+  --primary-light: #98fb98;
+  --primary-dark: #32cd32;
   --primary-text: #ffffff;
 
-  --secondary: #ffb74d;
-  --secondary-light: #ffd54f;
-  --secondary-dark: #f57c00;
+  --secondary: #7cfc00;
+  --secondary-light: #98fb98;
+  --secondary-dark: #32cd32;
   --secondary-text: #1a1a1a;
 
   --background: #121212;
@@ -78,6 +78,127 @@ body {
   padding: 12px;
   background-color: var(--background);
   font-size: 0.9rem;
+  position: relative;
+}
+
+/* Git branch lines animated background */
+.git-branches {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.git-branch-line {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  opacity: 0.15;
+}
+
+.git-branch-line:nth-child(1) {
+  left: 8%;
+  background: linear-gradient(to bottom, transparent, #32cd32, transparent);
+  animation: branch-flow 8s ease-in-out infinite;
+}
+
+.git-branch-line:nth-child(2) {
+  left: 20%;
+  background: linear-gradient(to bottom, transparent, #7cfc00, transparent);
+  animation: branch-flow 12s ease-in-out infinite 2s;
+}
+
+.git-branch-line:nth-child(3) {
+  left: 35%;
+  background: linear-gradient(to bottom, transparent, #228b22, transparent);
+  animation: branch-flow 10s ease-in-out infinite 4s;
+}
+
+.git-branch-line:nth-child(4) {
+  left: 55%;
+  background: linear-gradient(to bottom, transparent, #32cd32, transparent);
+  animation: branch-flow 9s ease-in-out infinite 1s;
+}
+
+.git-branch-line:nth-child(5) {
+  left: 72%;
+  background: linear-gradient(to bottom, transparent, #7cfc00, transparent);
+  animation: branch-flow 11s ease-in-out infinite 3s;
+}
+
+.git-branch-line:nth-child(6) {
+  left: 90%;
+  background: linear-gradient(to bottom, transparent, #228b22, transparent);
+  animation: branch-flow 7s ease-in-out infinite 5s;
+}
+
+/* Git commit dots on branch lines */
+.git-branch-line::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #32cd32;
+  left: -3px;
+  top: 0;
+  animation: commit-dot 6s ease-in-out infinite;
+}
+
+.git-branch-line:nth-child(2)::before {
+  animation-delay: 2s;
+  background: #7cfc00;
+}
+
+.git-branch-line:nth-child(3)::before {
+  animation-delay: 4s;
+  background: #228b22;
+}
+
+.git-branch-line:nth-child(4)::before {
+  animation-delay: 1s;
+}
+
+.git-branch-line:nth-child(5)::before {
+  animation-delay: 3s;
+  background: #7cfc00;
+}
+
+.git-branch-line:nth-child(6)::before {
+  animation-delay: 5s;
+  background: #228b22;
+}
+
+@keyframes branch-flow {
+  0%, 100% {
+    transform: translateY(-10px);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0.2;
+  }
+}
+
+@keyframes commit-dot {
+  0% {
+    top: -10px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
 }
 
 header {
@@ -101,6 +222,23 @@ header h1 {
 
 header h2 {
   font-size: 1.2rem;
+}
+
+/* Mascot banner */
+.mascot-banner {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.mascot-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 4px;
+  object-fit: cover;
 }
 
 main {
@@ -225,8 +363,8 @@ section h3 {
   position: absolute;
   top: 8px;
   right: 8px;
-  background: #e8eaf6;
-  color: #3949ab;
+  background: #e8f5e9;
+  color: #228b22;
   font-size: 0.65rem;
   font-weight: bold;
   padding: 2px 6px;
@@ -306,7 +444,7 @@ section h3 {
   width: 100%;
   font-weight: bold;
   border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(255, 111, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(50, 205, 50, 0.3);
   transition: all 0.3s ease;
   display: flex;
   justify-content: center;
@@ -527,7 +665,7 @@ footer {
 .search-box input:focus {
   outline: none;
   border-color: var(--primary-light);
-  box-shadow: 0 0 0 2px rgba(83, 75, 174, 0.1);
+  box-shadow: 0 0 0 2px rgba(50, 205, 50, 0.1);
 }
 
 .search-box button {
@@ -727,7 +865,7 @@ footer {
 
 /* Dark mode overrides for elements with hardcoded colors */
 [data-theme="dark"] header {
-  background-color: #1a1a2e;
+  background-color: #1a2e1a;
 }
 
 [data-theme="dark"] .search-box input {

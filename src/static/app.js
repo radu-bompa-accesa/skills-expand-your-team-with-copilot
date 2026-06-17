@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     arts: { label: "Arts", color: "#f3e5f5", textColor: "#7b1fa2" },
     academic: { label: "Academic", color: "#e3f2fd", textColor: "#1565c0" },
     community: { label: "Community", color: "#fff3e0", textColor: "#e65100" },
-    technology: { label: "Technology", color: "#e8eaf6", textColor: "#3949ab" },
+    technology: { label: "Technology", color: "#e8f5e9", textColor: "#228b22" },
   };
 
   // State for activities and filters
