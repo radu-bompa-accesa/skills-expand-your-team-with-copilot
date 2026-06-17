@@ -32,6 +32,36 @@
   --info-light: #d1ecf1;
 }
 
+/* Dark mode colors */
+[data-theme="dark"] {
+  --primary: #7986cb;
+  --primary-light: #9fa8da;
+  --primary-dark: #3949ab;
+  --primary-text: #ffffff;
+
+  --secondary: #ffb74d;
+  --secondary-light: #ffd54f;
+  --secondary-dark: #f57c00;
+  --secondary-text: #1a1a1a;
+
+  --background: #121212;
+  --surface: #1e1e1e;
+  --text-primary: #e0e0e0;
+  --text-secondary: #aaaaaa;
+  --border: #333333;
+  --border-light: #2a2a2a;
+  --border-focus: #444444;
+
+  --success: #66bb6a;
+  --success-light: #1b3d1e;
+  --warning: #ffa726;
+  --warning-light: #3d2e0a;
+  --error: #ef5350;
+  --error-light: #3d1212;
+  --info: #4dd0e1;
+  --info-light: #0a2e33;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -621,6 +651,9 @@ footer {
   position: absolute;
   top: 10px;
   right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 #user-status {
@@ -667,4 +700,56 @@ footer {
 
 #logout-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Dark mode toggle button */
+.theme-toggle {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 20px;
+  padding: 4px 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--primary-text);
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.theme-toggle .toggle-label {
+  font-size: 0.85rem;
+}
+
+/* Dark mode overrides for elements with hardcoded colors */
+[data-theme="dark"] header {
+  background-color: #1a1a2e;
+}
+
+[data-theme="dark"] .search-box input {
+  background-color: var(--surface);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .modal-content {
+  background-color: var(--surface);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .tooltip .tooltip-text {
+  background-color: rgba(50, 50, 50, 0.95);
+}
+
+[data-theme="dark"] input {
+  background-color: var(--surface);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] label {
+  color: var(--text-primary);
 }
